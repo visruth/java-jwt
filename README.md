@@ -166,6 +166,8 @@ You'll first need to create a `JWTVerifier` instance by calling `JWT.require()` 
             .withIssuer("auth0")
             .build(); //Reusable verifier instance
         DecodedJWT jwt = verifier.verify(token);
+        String decodedHeader = new String(Base64.getUrlDecoder().decode(jwt.getHeader()), StandardCharsets.UTF_8);
+        String decodedPayload = new String(Base64.getUrlDecoder().decode(jwt.getPayload()), StandardCharsets.UTF_8);
     } catch (JWTVerificationException exception){
         //Invalid signature/claims
     }
@@ -183,6 +185,8 @@ You'll first need to create a `JWTVerifier` instance by calling `JWT.require()` 
             .withIssuer("auth0")
             .build(); //Reusable verifier instance
         DecodedJWT jwt = verifier.verify(token);
+        String decodedHeader = new String(Base64.getUrlDecoder().decode(jwt.getHeader()), StandardCharsets.UTF_8);
+        String decodedPayload = new String(Base64.getUrlDecoder().decode(jwt.getPayload()), StandardCharsets.UTF_8);
     } catch (JWTVerificationException exception){
         //Invalid signature/claims
     }
